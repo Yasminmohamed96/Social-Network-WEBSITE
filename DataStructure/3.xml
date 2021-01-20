@@ -1,0 +1,25 @@
+<USER>
+    <ID>3</ID>
+    <FirstName>Mohammed</FirstName>
+    <LastName>Fawzy</LastName>
+    <DateOfBirth>12/2/1996</DateOfBirth>
+    <Gender>Male</Gender>
+    <Email>m.fawzy96@hotmail.com</Email>
+    <Password>1234</Password>
+    <Posts>
+        <Post>
+            <ID>6</ID>
+            <Body>It's Too Hot Today</Body>
+            <Date>15/5/2018</Date>
+        </Post>
+    </Posts>
+    <Friends>
+        <ID>2</ID>
+    </Friends>
+    <LikedPosts>
+        <ID>0</ID>
+        <ID>2</ID>
+        <ID>1</ID>
+        <ID>3</ID>
+    </LikedPosts>
+</USER>

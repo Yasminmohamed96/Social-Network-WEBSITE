@@ -1,0 +1,29 @@
+<USER>
+    <ID>0</ID>
+    <FirstName>yasmin</FirstName>
+    <LastName>mohammed</LastName>
+    <DateOfBirth>22/10/1996</DateOfBirth>
+    <Gender>Female</Gender>
+    <Email>yasmin@gmail.com</Email>
+    <Password>1234</Password>
+    <Posts>
+        <Post>
+            <ID>0</ID>
+            <Body>I am very sick Today</Body>
+            <Date>1/1/2018</Date>
+        </Post>
+        <Post>
+            <ID>1</ID>
+            <Body>I am feeling great !^^</Body>
+            <Date>2/1/2018</Date>
+        </Post>
+    </Posts>
+    <Friends>
+        <ID>2</ID>
+        <ID>1</ID>
+    </Friends>
+    <LikedPosts>
+        <ID>3</ID>
+        <ID>0</ID>
+    </LikedPosts>
+</USER>

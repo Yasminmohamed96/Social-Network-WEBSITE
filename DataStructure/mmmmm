@@ -1,0 +1,260 @@
+void USER::View_User_Posts()
+{  bool liked_post=false;
+	//pUser->InsertEndChild(pLikedPosts);
+	char Input = 'F';
+	Posts new_edit;
+	int i = 0; int flag = 0;
+	while (i < User_Posts.size()) {
+		//view first post
+		if (Input == 'F')
+		{
+			std::cout << User_Posts[0].body << endl;
+
+
+			//check liking part
+			//must know index of the current user
+			for (auto j = LikedPosts.begin(); j != LikedPosts.end(); j++)
+			{
+				if (*j==User_Posts[0].id)
+				{
+					std::cout << "               You Liked this post !               ";
+					flag = 1;
+					break;
+				}
+			}
+			cout <<"               if you want to Like this post ENter L               " << endl
+				<< "               To Edit YOUR post Enter E               " << endl
+				<< "               To delete you post Enter D               " << endl;
+				
+			if (i != User_Posts.size()-1) { cout << "               To see the Next post Enter N               " << endl; }
+			if (flag == 1)
+			{
+			cout << "               If you want to unlike the post Enter d               " << endl;
+			}
+			std::cin >> Input;
+
+			if (Input == 'L')
+			{  
+				string tempID=to_string(User_ID)+".xml";
+				const char * tempid = tempID.c_str();
+				temp.LoadFile(tempid);
+				XMLElement *pID=temp.NewElement("ID");
+				string postID=to_string(User_Posts[i].id);
+				const char * post_ID = postID.c_str();	
+				XMLNode * pos = temp.FirstChildElement("USER")->FirstChildElement("LikedPosts");
+				pID->SetText(post_ID);
+				pos->InsertEndChild(pID);
+				saveXMLtemp(User_ID);
+				LikedPosts.insert(P_ID);
+				cout << "               you liked this post !               " << endl;
+			}
+
+			else if (Input == 'E')
+			{
+				std::cout << "               please type the edit you want :" << endl;
+				std::cin >> new_edit.body;
+				Edit_Post(i, new_edit);
+				std::cout << "               Your Post Has been edited !               " << endl;
+			}
+			//if this is your post you can delete it
+			else if (Input == 'D')
+			{
+				Delete_Post(i);
+				std::cout << "               Your Post Has been Deleted !               " << endl;
+				i--;
+			}
+			
+			else if (Input == 'N') {
+				i++;
+			}
+
+		}
+
+		if ((User_Posts.size()) != 0) {
+			std::cout << User_Posts[i].body << endl;
+
+
+			//check liking part
+			//must know index of the current user
+			for (auto j = LikedPosts.begin(); j != LikedPosts.end(); j++)
+			{
+				if (*j==P_ID)
+				{
+					std::cout << "               You Liked this post !               ";
+					flag = 1;
+					break;
+				}
+			}
+			cout <<"               if you want to Like this post ENter L" << endl
+				<< "               To Edit YOUR post Enter E" << endl
+				<< "               To delete you post Enter D" << endl;
+			if (i != User_Posts.size()-1) { cout << "To see the Next post Enter N" << endl; }
+			if (flag == 1)
+			{
+				cout << "               If you want to unlike the post Enter d" << endl;
+			}
+			cin >> Input;
+
+			if (Input == 'L')
+			{
+				XMLElement *pID=xmlDoc.NewElement("ID");
+				string postID=to_string(User_Posts[i].id);
+				const char * post_ID = postID.c_str();
+				pID->SetText(post_ID);
+				pLikedPosts->InsertEndChild(pID);
+				saveXML(User_ID);
+				LikedPosts.insert(P_ID);
+				cout << "               you liked this post !               " << endl;
+			}
+		
+
+			//if this is your post you can edit it
+			else if (Input == 'E')
+			{
+				std::cout << "               please type the edit you want :               " << endl;
+				std::cin >> new_edit.body;
+				Edit_Post(i, new_edit);
+				std::cout << "               Your Post Has been edited  !             " << endl;
+			}
+			//if this is your post you can delete it
+			else if (Input == 'D')
+			{
+				Delete_Post(i);
+				std::cout << "               Your Post Has been Deleted  !             " << endl;
+				i--;
+			}
+			else if (Input == 'N') {
+				i++;
+			}
+			if (Input != 'N')
+				i++;
+
+		}
+	}
+}
+void USER:: View(int mainID)
+{  
+	char Input = 'F';
+	Posts new_edit;
+	int i = 0; int flag = 0;
+	while (i < User_Posts.size()) {
+		//view first post
+		if (Input == 'F')
+		{
+		    cout << User_Posts[0].body << endl;
+			//check liking part
+			//must know index of the current user
+	for (auto j = LikedPosts.begin(); j != LikedPosts.end(); j++)
+			{
+				if (*j==P_ID)
+				{
+					std::cout << "               You Liked this post !                ";
+					flag = 1;
+					break;
+				}
+			}
+			cout << "               if you want to Like this post Enter L if you want to Comment Enter C " << endl;
+			
+			if (i != User_Posts.size() - 1) { cout << "               To see the Next post Enter N" << endl; }
+			if (flag == 1)
+			{
+				cout << "               If you want to unlike the post Enter d" << endl;
+			}
+			std::cin >> Input;
+
+			if (Input == 'L')
+			{ 			string postID=to_string(User_Posts[i].id);
+						const char * post_ID = postID.c_str();
+			if(FLAG){
+			XMLElement *pID=xmlDoc.NewElement("ID");
+			pID->SetText(post_ID);
+			pLikedPosts->InsertEndChild(pID);
+			pUser->LinkEndChild(pLikedPosts);
+			saveXML(mainID);}
+			else{
+				string tempID=to_string(mainID)+".xml";
+				const char * tempid = tempID.c_str();
+				newTemp.LoadFile(tempid);
+				XMLNode * pos = newTemp.FirstChildElement("USER")->FirstChildElement("LikedPosts");
+				XMLElement *Pidtemp=newTemp.NewElement("ID");
+				Pidtemp->SetText(User_Posts[i].id);
+				pos->InsertEndChild(Pidtemp);
+				saveXMLNewtemp(mainID);
+			
+			}
+			LikedPosts.insert(P_ID);
+				cout << "               you liked this post !               " << endl;
+			}
+			if (Input == 'C'){
+			
+				string comment;
+				User_Posts[i].comments.push_back(comment);
+			
+			}
+			
+			else if (Input == 'N') {
+				i++;
+			}
+			if (Input != 'N')
+				i++;
+		}
+
+		if ((User_Posts.size()) != 0) {
+			cout << User_Posts[i].body << endl;
+
+
+			//check liking part
+			//must know index of the current user
+			for (auto j = LikedPosts.begin(); j != LikedPosts.end(); j++)
+			{
+				if (*j==P_ID)
+				{
+					std::cout << "               You Liked this post !               ";
+					flag = 1;
+					break;
+				}
+			}
+			cout << "               if you want to Like this post ENter L" << endl;
+				
+			if (i != User_Posts.size() - 1) { cout << "               To see the Next post Enter N" << endl; }
+			if (flag == 1)
+			{
+				cout << "               If you want to unlike the post Enter d" << endl;
+			}
+			std::cin >> Input;
+
+			if (Input == 'L')
+			{
+			if(FLAG){ XMLElement *pID=xmlDoc.NewElement("ID");
+			string postID=to_string(User_Posts[i].id);
+			const char * post_ID = postID.c_str();
+			pID->SetText(post_ID);
+			pLikedPosts->InsertEndChild(pID);
+			pUser->LinkEndChild(pLikedPosts);
+			saveXML(mainID);}
+			else{
+				string tempID=to_string(mainID)+".xml";
+				const char * tempid = tempID.c_str();
+				newTemp.LoadFile(tempid);
+				XMLNode * pos = newTemp.FirstChildElement("USER")->FirstChildElement("LikedPosts");
+				XMLElement *Pidtemp=newTemp.NewElement("ID");
+				Pidtemp->SetText(User_Posts[i].id);
+				pos->InsertEndChild(Pidtemp);
+				saveXMLNewtemp(mainID);
+			
+			}
+
+			LikedPosts.insert(P_ID);
+				cout << "               you liked this post !               " << endl;
+			}
+
+		
+			else if (Input == 'N') {
+				i++;
+			}
+			if (Input != 'N')
+				i++;
+
+		}
+	}
+}

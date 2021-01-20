@@ -1,0 +1,38 @@
+<USER>
+    <ID>2</ID>
+    <FirstName>Maryam</FirstName>
+    <LastName>Nabil</LastName>
+    <DateOfBirth>12/3/1994</DateOfBirth>
+    <Gender>Female</Gender>
+    <Email>mariam@gmail.com</Email>
+    <Password>1234</Password>
+    <Posts>
+        <Post>
+            <ID>3</ID>
+            <Body>What Happened today ?</Body>
+            <Date>5/6/2018</Date>
+        </Post>
+        <Post>
+            <ID>4</ID>
+            <Body>It's me Again !</Body>
+            <Date>3/2/2018</Date>
+        </Post>
+        <Post>
+            <ID>5</ID>
+            <Body>This Network is Amazing !</Body>
+            <Date>7/2/2018</Date>
+        </Post>
+    </Posts>
+    <Friends>
+        <ID>2</ID>
+        <ID>1</ID>
+        <ID>3</ID>
+        <ID>4</ID>
+    </Friends>
+    <LikedPosts>
+        <ID>2</ID>
+        <ID>3</ID>
+        <ID>0</ID>
+        <ID>4</ID>
+    </LikedPosts>
+</USER>

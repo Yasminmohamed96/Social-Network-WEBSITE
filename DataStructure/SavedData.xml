@@ -1,0 +1,10 @@
+<Graph>
+    <USER>
+        <firstName>maryam</firstName>
+        <lastName>nabil</lastName>
+        <email>mariamnabil@gmail.com</email>
+        <DateOfBirth>12/5/1995</DateOfBirth>
+        <Gender>Female</Gender>
+        <Password>mariamnabil</Password>
+    </USER>
+</Graph>

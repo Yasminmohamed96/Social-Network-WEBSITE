@@ -1,0 +1,24 @@
+<USER>
+    <ID>4</ID>
+    <FirstName>Nour</FirstName>
+    <LastName>Eissa</LastName>
+    <DateOfBirth>28/3/1994</DateOfBirth>
+    <Gender>Female</Gender>
+    <Email>nour@eissa.com</Email>
+    <Password>123</Password>
+    <Posts>
+        <Post>
+            <ID>7</ID>
+            <Body>I am new Here ! Please welcome me !</Body>
+            <Date>18/4/2018</Date>
+        </Post>
+    </Posts>
+    <Friends>
+        <ID>2</ID>
+        <ID>1</ID>
+    </Friends>
+    <LikedPosts>
+        <ID>2</ID>
+        <ID>3</ID>
+    </LikedPosts>
+</USER>
